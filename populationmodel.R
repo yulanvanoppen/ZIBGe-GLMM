@@ -1,9 +1,9 @@
-library(coda)                               # detailed MCMC output
-library(parallel)                           # multithreading
-library(runjags)                            # JAGS in R
+library(coda)                           # detailed MCMC output
+library(parallel)                       # multithreading
+library(runjags)                        # invoke JAGS in R
 
-load("df.rda")                              # Aeshna viridis population data
-                                            # (externally available)
+load("df.rda")                          # Aeshna viridis population data
+                                        # (externally available)
 DATA <- with(df, list(Y = cbind(exuviae, egglaying_females),
                       Z = as.numeric(as.factor(area)),
                       X = cbind(rep(1, nrow(totals)),
@@ -27,7 +27,7 @@ DATA$PRIORMU   <- rep(0, DATA$NCOV)
 DATA$PRIORISIG <- diag(rep(0.1, DATA$NCOV))
 
 MODEL <- '
-model {                                 # Observation-specific models
+model {                                 # observation-specific models
     for (i in 1:NOBS) {
         Y[i, 1:2] ~ dzibg(MU[i], NU[i], TH, P, Q, R)
 
@@ -37,15 +37,15 @@ model {                                 # Observation-specific models
         log(M[i])     <- inprod(BETA_M, X[i, ]) + B_M[Z[i]]
         log(N[i])     <- inprod(BETA_N, X[i, ]) + B_N[Z[i]]
     }
-    logit(TH) <- BETA_TH                # Correlation model
+    logit(TH) <- BETA_TH                # correlation model
 
-    for (i in 1:NREF) {                 # Random effects prior distributions
+    for (i in 1:NREF) {                 # random effects prior distributions
         B[i, 1:2] ~ dmnorm(c(0, 0), ISIGMA2)
         B_M[i] <- B[i, 1]
         B_N[i] <- B[i, 2]
     }
     
-    OM1      ~  dgamma(0.5, 1E-2)       # Random effect variance MGH-t prior
+    OM1      ~  dgamma(0.5, 1E-2)       # random effect variance MGH-t prior
     OM2      ~  dgamma(0.5, 1E-2)
     OM[1, 1] <- OM1
     OM[1, 2] <- 0
@@ -53,18 +53,18 @@ model {                                 # Observation-specific models
     OM[2, 2] <- OM2
     ISIGMA2  ~  dwish(inverse(OM), 3)
     
-                                        # Zero-inflation models
+                                        # zero-inflation models
     P <- exp(BETA_P) / (1 + exp(BETA_P) + exp(BETA_Q) + exp(BETA_R)) / 2
     Q <- exp(BETA_Q) / (1 + exp(BETA_P) + exp(BETA_Q) + exp(BETA_R)) / 2
     R <- exp(BETA_R) / (1 + exp(BETA_P) + exp(BETA_Q) + exp(BETA_R)) / 2
 
-                                        # Fixed effects prior distributions
+                                        # fixed effects prior distributions
     BETA_M  ~ dmnorm(PRIORMU,       PRIORISIG)
     BETA_N  ~ dmnorm(PRIORMU,       PRIORISIG)
     
-    BETA_TH ~ dnorm(0, 0.25)            # Correlation prior distribution
+    BETA_TH ~ dnorm(0, 0.25)            # correlation prior distribution
     
-    BETA_P  ~ dnorm(0, 0.25)            # Zero-inflation prior distributions
+    BETA_P  ~ dnorm(0, 0.25)            # zero-inflation prior distributions
     BETA_Q  ~ dnorm(0, 0.25)
     BETA_R  ~ dnorm(0, 0.25)
 }'

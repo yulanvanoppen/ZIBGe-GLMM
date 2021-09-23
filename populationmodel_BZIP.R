@@ -1,9 +1,9 @@
-library(coda)                               # detailed MCMC output
-library(parallel)                           # multithreading
-library(runjags)                            # JAGS in R
+library(coda)                           # detailed MCMC output
+library(parallel)                       # multithreading
+library(runjags)                        # invoke JAGS in R
 
-load("df.rda")                              # green hawker population data
-                                            # (externally available)
+load("df.rda")                          # Aeshna viridis population data
+                                        # (externally available)
 DATA <- with(df, list(Y = cbind(exuviae, egglaying_females),
                       Z = as.numeric(as.factor(area)),
                       X = cbind(rep(1, nrow(totals)),
@@ -27,7 +27,7 @@ DATA$PRIORMU   <- rep(0, DATA$NCOV)
 DATA$PRIORISIG <- diag(rep(0.1, DATA$NCOV))
 
 MODEL <- '
-model {                                     # Observation-specific models
+model {                                 # observation-specific models
     C <- 10000
     
     for (i in 1:NOBS) {
@@ -46,19 +46,19 @@ model {                                     # Observation-specific models
                                     - logfact(Y[i, 2] - 0:min(Y[i, 1], Y[i, 2]))
                                     - (LA0 + LA1[i] + LA2[i])))
 
-                                        # Linear predictors
+                                        # linear predictors
         log(LA1[i]) <- inprod(BETA_1, X[i, ]) + B_M[Z[i]]
         log(LA2[i]) <- inprod(BETA_2, X[i, ]) + B_N[Z[i]]
     }
     log(LA0) <- BETA_0
 
-    for (j in 1:NREF) {                 # Random effects prior distributions
+    for (j in 1:NREF) {                 # random effects prior distributions
         B[j, 1:2] ~ dmnorm(c(0, 0), ISIGMA2)
         B_M[j] <- B[j, 1]
         B_N[j] <- B[j, 2]
     }
     
-    OM1      ~  dgamma(0.5, 1E-2)       # Random effect variance MGH-t prior
+    OM1      ~  dgamma(0.5, 1E-2)       # random effect variance MGH-t prior
     OM2      ~  dgamma(0.5, 1E-2)
     OM[1, 1] <- OM1
     OM[1, 2] <- 0
@@ -67,10 +67,10 @@ model {                                     # Observation-specific models
     ISIGMA2  ~  dwish(inverse(OM), 3)
     
     
-    P <- PI[1]                          # Zero-inflation models
+    P <- PI[1]                          # zero-inflation models
     Q <- PI[2]
     R <- PI[3]
-                                        # Fixed effects prior distributions
+                                        # fixed effects prior distributions
     for (k in 1:NCOV) {
         BETA_1[k] ~ dnorm(0, PREC1[k])
         BETA_2[k] ~ dnorm(0, PREC2[k])
@@ -80,7 +80,7 @@ model {                                     # Observation-specific models
     BETA_0 ~ dnorm(0, PREC0)
     PREC0 ~ dgamma(2, 1)
     
-    PI ~ ddirch(c(1, 1, 1, 1))          # Zero-inflation prior distribution
+    PI ~ ddirch(c(1, 1, 1, 1))          # zero-inflation prior distribution
 }'
 
 PARAMS <- c('BETA_1', 'BETA_2', 'BETA_0',
