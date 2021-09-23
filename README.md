@@ -1,5 +1,5 @@
 # ZIBG-GLMM
-Software package for ZIBG-GLMM Bayesian inference
+_Software package for ZIBG-GLMM Bayesian inference_
 
 &nbsp;
 
