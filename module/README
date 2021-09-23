@@ -1,0 +1,18 @@
+[MAC/LINUX] Make sure to have the following software installed and updated:
+ - JAGS
+ - Boost
+ 
+Excute the following terminal commands:
+
+CPLUS_INCLUDE_PATH=/usr/include/JAGS
+export CPLUS_INCLUDE_PATH
+make
+sudo make install
+
+
+[WINDOWS] See [1] for additional required steps (it is more straightforward to 
+consider running a virtual machine running Linux)
+
+[1] Wabersich, D., & Vandekerckhove, J. (2014). Extending JAGS: A tutorial on
+    adding custom distributions to JAGS (with a diffusion model example). 
+    Behavior Research Methods, 46(1), 15-28.
