@@ -1,5 +1,5 @@
 # ZIBGe-GLMM
-_Software package for ZIBGe-GLMM Bayesian inference_
+_Software package for Zero-Inflated Bivariate Geometric Generalized Linear Mixed Model (ZIBGe-GLMM) Bayesian inference_
 
 &nbsp;
 
