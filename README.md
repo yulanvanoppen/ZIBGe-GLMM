@@ -27,10 +27,10 @@ Install the custom `/module` for `JAGS` (see `/module/README`) and run `/example
 The contents of this package can be divided into three groups:
 
 ### Data generation
-ZIBGe distribution PMF
+ZIBGe distribution PMF  
 `/dzibg.cpp`  
 
-MCMC algorithm to generate ZIBGe-distributed data
+MCMC algorithm to generate ZIBGe-distributed data  
 `/mcmcsample.R`  
 
 Functions defined in mcmcsample.R  
