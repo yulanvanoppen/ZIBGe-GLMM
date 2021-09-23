@@ -1,6 +1,8 @@
 # ZIBG-GLMM
 Software package for ZIBG-GLMM Bayesian inference
 
+&nbsp;
+
 ## Quickstart
 Install the JAGS `module` and run `example.R` to generate example data and generate a posterior parameter sample.
 
@@ -42,7 +44,7 @@ Same as above, using the BZIP model in [1] instead
 
 
 ### Custom JAGS module for ZIBG likelihood computations
-Directory containing installation files
+Directory containing installation files  
 `module`
 
 &nbsp;
