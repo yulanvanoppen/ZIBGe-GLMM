@@ -6,7 +6,18 @@ _Software package for Zero-Inflated Bivariate Geometric Generalized Linear Mixed
 
 
 ## Quickstart
-Install the JAGS `module` (see `module/README`) and run `example.R` to generate example data and generate a posterior parameter sample.
+Make sure the following software is installed and up-to-date:  
+ - `R`  
+ - `JAGS`  
+ - `Boost`  
+
+Also, make sure that the following `R` packages are installed:  
+ - `runjags`  
+ - `rjags`  
+ - `Rcpp`  
+ - `BH`  
+
+Install the custom `/module` for `JAGS` (see `/module/README`) and run `/example.R` to generate example data and generate a posterior parameter sample.
 
 &nbsp;
 
@@ -17,35 +28,35 @@ The contents of this package can be divided into three groups:
 
 ### Data generation
 ZIBGe distribution PMF  
-`dzibg.cpp`  
+`/dzibg.cpp`  
 
 MCMC algorithm to generate ZIBGe-distributed data  
-`mcmcsample.R`  
+`/mcmcsample.R`  
 
 Functions defined in mcmcsample.R  
-`rZIBG.rda`  
+`/rZIBG.rda`  
 
 Script to generate data  
-`generate.R`  
+`/generate.R`  
 
 Data generated using `generate.R`  
-`generated.rda`
+`/generated.rda`
 
 
 ### JAGS model scripts invoked using `runjags`
 Generate posterior sample for data in `generated.rda`  
-`constantmodel.R`
+`/constantmodel.R`
 
 Generate posterior sample for Aeshna viridis population data (externally available)  
-`populationmodel.R`
+`/populationmodel.R`
 
 Same as above, using the BZIP model in [2] instead  
-`populationmodel_BZIP.R`
+`/populationmodel_BZIP.R`
 
 
 ### Custom JAGS module for ZIBG likelihood computations
 Directory containing installation files (see `module/README`)  
-`module`
+`/module`
 
 &nbsp;
 
@@ -55,9 +66,9 @@ Directory containing installation files (see `module/README`)
 
 _Probability Mass Function_ (_PMF_) evaluations of the ZIBGe distribution need to be carefully implemented to avoid round-off errors when working with large multinomial coefficients. This problem is particularly pronounced when both components of the evaluated point are large. Therefore, multiple precision floating points are needed to store intermediate results since a `double` data type only supports precision up to 15 decimal digits. The PMF is implemented in a `C++` function (to be interfaced with `Rcpp` in `R`) to utilize the `cpp_bin_float` class from Boost's Multiprecision library (see [1]). Using high precision is computationally demanding, so to counteract this, powers already computed in each previous term are re-used to avoid evaluating the summands in the PMF directly. 
 
-Likelihoods that cannot be computed using JAGS's built-in distributions are often dealt with using the zeros or ones trick (see [3], § 9.4). However, doing so prevents the use of multiple precision floating points. The modular character of JAGS makes it easy to extend the build-in distributions using custom (multivariate) distributions or sampling algorithms (see [4]). Analogous to `dzibg.cpp`, the custom `module` facilitates likelihood computations using high-precision intermediate computations.
+Likelihoods that cannot be computed using JAGS's built-in distributions are often dealt with using the zeros or ones trick (see [3], § 9.4). However, doing so prevents the use of multiple precision floating points. The modular character of `JAGS` makes it easy to extend the build-in distributions using custom (multivariate) distributions or sampling algorithms (see [4]). Analogous to `/dzibg.cpp`, the custom `/module` facilitates likelihood computations using high-precision intermediate computations.
 
-Straightforward sampling methods, such as inverse transform sampling or rejection sampling, are inapplicable to the ZIBGe distribution; the former due to the nested sums appearing in its cumulative distribution function, and the latter because of the absence of a suitable proposal distribution. Therefore, a simple Metropolis-Hastings MCMC algorithm is used to generate ZIBG samples instead (see `mcmcsample.R`). 
+Straightforward sampling methods, such as inverse transform sampling or rejection sampling, are inapplicable to the ZIBGe distribution; the former due to the nested sums appearing in its cumulative distribution function, and the latter because of the absence of a suitable proposal distribution. Therefore, a simple Metropolis-Hastings MCMC algorithm is used to generate ZIBG samples instead (see `/mcmcsample.R`). 
 
 &nbsp;
 
