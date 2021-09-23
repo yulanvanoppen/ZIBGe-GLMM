@@ -1,5 +1,5 @@
 library(Rcpp)
-sourceCpp('dzibg.cpp')                          # load ZIBG PMF
+sourceCpp('dZIBGe.cpp')                          # load ZIBG PMF
 
 Q <- function(from, to) 2^-sum(!to)             # proposal distribution going Q(to | from)
 
@@ -33,7 +33,7 @@ mcmcsample <- function(n, pars, pmass, thin) { # generate sample using MCMC algo
     return(points)
 }
 
-rZIBG <- function(n, pars, thin=10000)          # generate ZIBG data
-    mcmcsample(n, pars, pmass=dzibg, thin)
+rZIBGe <- function(n, pars, thin=10000)          # generate ZIBG data
+    mcmcsample(n, pars, pmass=dZIBGe, thin)
 
-save(Q, propose, A, mcmcsample, rZIBG, file='rZIBG.rda')
+save(Q, propose, A, mcmcsample, rZIBGe, file='rZIBGe.rda')

@@ -3,12 +3,12 @@ library(parallel)                           # multithreading
 library(Rcpp)                               # compile C++ files
 library(runjags)                            # invoke JAGS in R
 
-sourceCpp('dzibg.cpp')                      # load ZIBG PMF
+sourceCpp('dZIBGe.cpp')                      # load ZIBG PMF
 
-load('rZIBG.rda')                           # load ZIBG data-generating functions
+load('rZIBGe.rda')                           # load ZIBG data-generating functions
 
 set.seed(0)                                 # fix random number generator
-y <- rZIBG(200, c(5, 5, 0.5, 0.1, 0, 0))    # generate 200 data points
+y <- rZIBGe(200, c(5, 5, 0.5, 0.1, 0, 0))    # generate 200 data points
 plot(y)
 
 DATA <- list(Y = y, NOBS = nrow(y))         # prepare data for JAGS
