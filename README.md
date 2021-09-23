@@ -11,7 +11,7 @@ Make sure the following software is installed and up-to-date:
  - `JAGS`  
  - `Boost`  
 
-Also, make sure that the following `R` packages are installed:  
+Also, make sure that the following `R` packages are installed and up-to-date:  
  - `runjags`  
  - `rjags`  
  - `Rcpp`  
