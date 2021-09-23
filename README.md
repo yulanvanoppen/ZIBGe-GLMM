@@ -6,7 +6,7 @@ _Software package for Zero-Inflated Bivariate Geometric Generalized Linear Mixed
 
 
 ## Quickstart
-Install the JAGS `module` and run `example.R` to generate example data and generate a posterior parameter sample.
+Install the JAGS `module` (see `module/README`) and run `example.R` to generate example data and generate a posterior parameter sample.
 
 &nbsp;
 
@@ -44,7 +44,7 @@ Same as above, using the BZIP model in [2] instead
 
 
 ### Custom JAGS module for ZIBG likelihood computations
-Directory containing installation files  
+Directory containing installation files (see `module/README`)  
 `module`
 
 &nbsp;
