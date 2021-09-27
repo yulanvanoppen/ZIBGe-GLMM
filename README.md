@@ -63,7 +63,7 @@ Directory containing installation files (see `module/README`)
 
 
 ### Data
-Aeshna viridis population data, adapted from [5]   
+Aeshna viridis population data collected by Bureau Biota (Groningen, NL) [4]   
 `/data`
 
 &nbsp;
