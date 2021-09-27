@@ -2,8 +2,8 @@ library(coda)                           # detailed MCMC output
 library(parallel)                       # multithreading
 library(runjags)                        # invoke JAGS in R
 
-load("df.rda")                          # Aeshna viridis population data
-                                        # (externally available)
+load("populationdata.rda")              # Aeshna viridis population data
+
 DATA <- with(df, list(Y = cbind(exuviae, egglaying_females),
                       Z = as.numeric(as.factor(area)),
                       X = cbind(rep(1, nrow(totals)),
