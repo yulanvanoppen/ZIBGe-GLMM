@@ -17,8 +17,8 @@ The remaining variables relate to the water quality (yearly averages):
 
 - `emers_frac`: the surface coverage fraction of _A. viridis_' host plant _Stratiotes aloides_.
 - `pH`: the acidity measured on the pH scale;
-- `redox_V`: the redox measured in volts;
-- `O2_frac`: the oxygen level measured in the dissolved oxygen fraction;
+- `redox_V`: the redox potential measured in volts;
+- `O2_frac`: the oxygen concentration measured in the dissolved oxygen fraction;
 - `EC_mS_cm`: the electrical conductivity measured in millisiemens per centimeter;
 - `temp_C`: the temperatere measured in degrees Celcius;
 - `water_depth_m`: the water depth measured in meters;
