@@ -47,11 +47,11 @@ Data generated using `generate.R`
 Generate posterior sample for data in `generated.rda`  
 `/constantmodel.R`
 
-Generate posterior sample for Aeshna viridis population data
+Generate posterior sample for Aeshna viridis population data  
 `/populationmodel.R`
 
 Same as above, using the BZIP model in [2] instead  
-`/populationmodel_BZIP.R`  
+`/populationmodel_BZIP.R`
 
 R data file loaded in `/populationmodel.R` and `/populationmodel_BZIP.R`  
 `/populationdata.rda`
