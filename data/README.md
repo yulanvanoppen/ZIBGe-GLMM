@@ -5,7 +5,7 @@ _Aeshna viridis population measures and environmental factors collected from 201
 ## Contents
 The data in `/populationdata.csv` contain 114 observations of 15 variables (yearly aggregates; totals and averages):
 
-- `manager`: the manager responsible for maintaining and surveilling the location, labeled _GL_ (_Gemeente Leeuwarden_), _GV_ (_Gemeente Veendam_), _SBBF_ (_Staatsbosbeheer Twijzel_), _SBBG_ (_Staatsbosbeheer Groningen_), or _WHA_ (_Waterschap Hunze en Aa's_);
+- `manager`: the manager responsible for maintaining and surveilling the location, labeled _GL_ (_Groninger Landschap_), _GV_ (_Gemeente Veendam_), _SBBF_ (_Staatsbosbeheer Twijzel_), _SBBG_ (_Staatsbosbeheer Groningen_), or _WHA_ (_Waterschap Hunze en Aa's_);
 - `area`: the location with labels composed of the manager label and a counter;
 - `transect`: one of two parts in which the location is divided, labeled 'a' or 'b';
 - `treatment`: either the 'regular' or the 'checker' treatment, randomly allocated to each location's part 'a' or 'b' (same for each year);
