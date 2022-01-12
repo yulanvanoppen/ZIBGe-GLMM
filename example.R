@@ -3,9 +3,9 @@ library(parallel)                           # multithreading
 library(Rcpp)                               # compile C++ files
 library(runjags)                            # invoke JAGS in R
 
-sourceCpp('dZIBGe.cpp')                      # load ZIBG PMF
+sourceCpp('dZIBGe.cpp')                     # load ZIBG PMF
 
-load('rZIBGe.rda')                           # load ZIBG data-generating functions
+load('rZIBGe.rda')                          # load ZIBG data-generating functions
 
 set.seed(0)                                 # fix random number generator
 y <- rZIBGe(200, c(5, 5, 0.5, 0.1, 0, 0))   # generate 200 data points
@@ -29,7 +29,7 @@ model {
     
 }'
 
-PARAMS <- c('M', 'N', 'TH', 'P')           # monitored parameters
+PARAMS <- c('M', 'N', 'TH', 'P')            # monitored parameters
 
                                             # chain seeds
 INITIAL <- replicate(8, list(list(.RNG.name = 'base::Mersenne-Twister',
