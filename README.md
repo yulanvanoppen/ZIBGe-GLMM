@@ -39,12 +39,12 @@ Functions defined in `/mcmcsample.R`
 Script to generate data  
 `/generate.R`  
 
-Data generated using `generate.R`  
+Data generated using `/generate.R`  
 `/generated.rda`
 
 
 ### JAGS model scripts invoked using `runjags`
-Generate posterior sample for data in `generated.rda`  
+Generate posterior sample for data in `/generated.rda`  
 `/constantmodel.R`
 
 Generate posterior sample for Aeshna viridis population data  
@@ -58,13 +58,13 @@ R data file loaded in `/populationmodel.R` and `/populationmodel_BZIP.R`
 
 
 ### Custom JAGS module for ZIBG likelihood computations
-Directory containing installation files (see `module/README`)  
-`/module`
+Directory containing installation files (see `/module/README`)  
+`/module/`
 
 
 ### Data
 Aeshna viridis population data collected by Bureau Biota (Groningen, NL) [4]   
-`/data`
+`/data/`
 
 &nbsp;
 
