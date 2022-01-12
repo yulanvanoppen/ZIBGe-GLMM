@@ -8,8 +8,8 @@ sourceCpp('dZIBGe.cpp')                      # load ZIBG PMF
 load('rZIBGe.rda')                           # load ZIBG data-generating functions
 
 set.seed(0)                                 # fix random number generator
-y <- rZIBGe(200, c(5, 5, 0.5, 0.1, 0, 0))    # generate 200 data points
-plot(y)
+y <- rZIBGe(200, c(5, 5, 0.5, 0.1, 0, 0))   # generate 200 data points
+plot(y)                                     # (note: marginal mean parameterization)
 
 DATA <- list(Y = y, NOBS = nrow(y))         # prepare data for JAGS
 
