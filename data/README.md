@@ -1,6 +1,6 @@
 # Aeshna viridis population data
 
-_Aeshna viridis population measures and environmental factors collected from 2015–2018 at 17 locations (ditches or ponds) in the Northern Netherlands by Bureau Biota (Groningen, NL) [1]._
+_Aeshna viridis population measures and environmental factors at 17 locations (ditches or ponds) in the Northern Netherlands during 2015--2018, collected and owned by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com") [1]._
 
 ## Contents
 The data in `/populationdata.csv` contain 114 observations of 15 variables (yearly aggregates; totals and averages):
