@@ -63,8 +63,13 @@ Directory containing installation files (see `/module/README`)
 
 
 ### Data
-Aeshna viridis population data collected by Bureau Biota (Groningen, NL) [4]   
+Aeshna viridis (green hawker) population data collected by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com") [4]   
 `/data/`
+
+
+<img src="https://github.com/yulanvanoppen/storage/blob/main/Aeshna_viridis.jpg" width="400">
+
+**Figure 1.** A female green hawker (photo copyright by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com"))
 
 &nbsp;
 
