@@ -106,7 +106,7 @@ Straightforward sampling methods, such as inverse transform sampling or rejectio
 ## DISCLAIMER
 _All software in this repository is covered by this disclaimer:_
 
-While every effort is made to deliver high quality products, no guarantee is made that the products are free from defects. The software is provided “as is," and you use the software at your own risk.
+While every effort is made to deliver high quality products, no guarantee is made that the products are free from defects. The software is provided "as is", and you use the software at your own risk.
 
 No warranties are made as to performance, merchantability, fitness for a particular purpose, or any
 other warranties whether expressed or implied.
