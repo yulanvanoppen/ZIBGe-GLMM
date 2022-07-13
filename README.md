@@ -1,5 +1,5 @@
 # ZIBGe-GLMM
-_Software package for Zero-Inflated Bivariate Geometric Generalized Linear Mixed Model (ZIBGe-GLMM) Bayesian inference_
+_Software package for Zero-Inflated Bivariate Geometric Generalized Linear Mixed Model (ZIBGe-GLMM) Bayesian inference [1]_
 
 &nbsp;
 
@@ -63,13 +63,14 @@ Directory containing installation files (see `/module/README`)
 
 
 ### Data
-Aeshna viridis (green hawker) population data collected by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com") [4]   
+Aeshna viridis (green hawker) population data collected by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com") [3]   
 `/data/`
 
 
-<img src="https://github.com/yulanvanoppen/storage/blob/main/Aeshna_viridis.jpg" width="400">
+<img src="https://github.com/yulanvanoppen/storage/blob/main/Aeshna_viridis.jpg" width="550">
 
-**Figure 1.** A female green hawker (photo copyright by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com"))
+**Figure 1.** A female green hawker. Photo copyright by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com").
+
 
 &nbsp;
 
@@ -77,9 +78,9 @@ Aeshna viridis (green hawker) population data collected by [Bureau Biota (Gronin
 
 ## Technical details
 
-_Probability Mass Function_ (_PMF_) evaluations of the ZIBGe distribution need to be carefully implemented to avoid round-off errors when working with large multinomial coefficients. This problem is particularly pronounced when both components of the evaluated point are large. Therefore, multiple precision floating points are needed to store intermediate results since a `double` data type only supports precision up to 15 decimal digits. The PMF is implemented in a `C++` function (to be interfaced with `Rcpp` in `R`) to utilize the `cpp_bin_float` class from Boost's Multiprecision library (see [1]). Using high precision is computationally demanding, so to counteract this, powers already computed in each previous term are re-used to avoid evaluating the summands in the PMF directly. 
+_Probability Mass Function_ (_PMF_) evaluations of the ZIBGe distribution need to be carefully implemented to avoid round-off errors when working with large multinomial coefficients. This problem is particularly pronounced when both components of the evaluated point are large. Therefore, multiple precision floating points are needed to store intermediate results since a `double` data type only supports precision up to 15 decimal digits. The PMF is implemented in a `C++` function (to be interfaced with `Rcpp` in `R`) to utilize the `cpp_bin_float` class from Boost's Multiprecision library (see [4]). Using high precision is computationally demanding, so to counteract this, powers already computed in each previous term are re-used to avoid evaluating the summands in the PMF directly. 
 
-Likelihoods that cannot be computed using JAGS's built-in distributions are often dealt with using the zeros or ones trick (see [3], § 9.4). However, doing so prevents the use of multiple precision floating points. The modular character of `JAGS` makes it easy to extend the build-in distributions using custom (multivariate) distributions or sampling algorithms (see [5]). Analogous to `/dZIBGe.cpp`, the custom `/module` facilitates likelihood computations using high-precision intermediate computations.
+Likelihoods that cannot be computed using JAGS's built-in distributions are often dealt with using the zeros or ones trick (see [5], § 9.4). However, doing so prevents the use of multiple precision floating points. The modular character of `JAGS` makes it easy to extend the build-in distributions using custom (multivariate) distributions or sampling algorithms (see [6]). Analogous to `/dZIBGe.cpp`, the custom `/module` facilitates likelihood computations using high-precision intermediate computations.
 
 Straightforward sampling methods, such as inverse transform sampling or rejection sampling, are inapplicable to the ZIBGe distribution; the former due to the nested sums appearing in its cumulative distribution function, and the latter because of the absence of a suitable proposal distribution. Therefore, a simple Metropolis-Hastings MCMC algorithm is used to generate ZIBG samples instead (see `/mcmcsample.R`). 
 
@@ -89,15 +90,17 @@ Straightforward sampling methods, such as inverse transform sampling or rejectio
 
 ## References
 
-[1] Maddock, J., & Kormanyos, C. (2018). Boost multiprecision.
+[1] van Oppen, Y. B., Milder-Mulderij, G., Brochard, C., Wiggers, R., de Vries, S., Krijnen, W. P., & Grzegorczyk, M. A. (2022). Modeling dragonfly population data with a Bayesian bivariate geometric mixed-effects model. _Journal of Applied Statistics_, 1-23.
 
 [2] Majumdar, A., & Gries, C. (2010). Bivariate zero-inflated regression for count data: A Bayesian approach with application to plant counts. _The International Journal of Biostatistics, 6_(1).
 
-[3] Lunn, D., Jackson, C., Best, N., Thomas, A., & Spiegelhalter, D. (2012). _The BUGS Book: A Practical Introduction to Bayesian Analysis_ (CRC, Boca Raton, FL).
+[3] Milder-Mulderij, G., Brochard, C., Wiggers, R., & de Vries, S. (2020). Alternatief krabbenscheerbeheer in Fryslân, Groningen en Drenthe.  Interpretatie op basis van vier jaar onderzoek op diverse locaties. Bureau Biota.
 
-[4] Milder-Mulderij, G. and Brochard, C. and Wiggers, R. and de Vries, S. (2020). Alternatief krabbenscheerbeheer in Fryslân, Groningen en Drenthe.  Interpretatie op basis van vier jaar onderzoek op diverse locaties. Bureau Biota.
+[4] Maddock, J., & Kormanyos, C. (2018). Boost multiprecision.
 
-[5] Wabersich, D., & Vandekerckhove, J. (2014). Extending JAGS: A tutorial on adding custom distributions to JAGS (with a diffusion model example). _Behavior Research Methods, 46_(1), 15-28.
+[5] Lunn, D., Jackson, C., Best, N., Thomas, A., & Spiegelhalter, D. (2012). _The BUGS Book: A Practical Introduction to Bayesian Analysis_ (CRC, Boca Raton, FL).
+
+[6] Wabersich, D., & Vandekerckhove, J. (2014). Extending JAGS: A tutorial on adding custom distributions to JAGS (with a diffusion model example). _Behavior Research Methods, 46_(1), 15-28.
 
 &nbsp;
 
