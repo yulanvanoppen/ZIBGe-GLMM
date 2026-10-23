@@ -67,7 +67,7 @@ Aeshna viridis (green hawker) population data collected by [Bureau Biota (Gronin
 `/data/`
 
 
-<img src="https://github.com/yulanvanoppen/storage/blob/main/Aeshna_viridis.jpg" width="550">
+<img src="https://raw.githubusercontent.com/yulanvanoppen/ZIBGe-GLMM/refs/heads/main/images/Aeshna_viridis.jpg" width="550">
 
 **Figure 1.** A female green hawker. Photo copyright by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com").
 
