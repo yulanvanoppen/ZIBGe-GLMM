@@ -2,7 +2,7 @@
 
 _Aeshna viridis population measures and environmental factors at 17 locations (ditches or ponds) in the Northern Netherlands during 2015--2018, collected and owned by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com") [1]_
 
-<img src="https://github.com/yulanvanoppen/storage/blob/main/Aeshna_viridis_with_exuviae.jpg" width="400">
+<img src="https://raw.githubusercontent.com/yulanvanoppen/ZIBGe-GLMM/refs/heads/main/images/Aeshna_viridis_with_exuviae.jpg" width="400">
 
 **Figure 1.** A female green hawker (left) and exuviae (right). Photo copyright by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com").
 
@@ -32,13 +32,13 @@ The remaining variables relate to the water quality (yearly averages):
 
 &nbsp;
 
-<img src="https://github.com/yulanvanoppen/storage/blob/main/ritsbeheer_GL1.jpg" width="550">
+<img src="https://raw.githubusercontent.com/yulanvanoppen/ZIBGe-GLMM/refs/heads/main/images/ritsbeheer_GL1.jpg" width="550">
 
 **Figure 2.** The part of ditch 'GL1' where the 'checker' treatment was applied. Photo copyright by [Bureau Biota (Groningen, NL)](https://www.bureaubiota.com "https://www.bureaubiota.com").
 
 &nbsp;
 
-<img src="https://github.com/yulanvanoppen/storage/blob/main/map.png" width="700">
+<img src="https://raw.githubusercontent.com/yulanvanoppen/ZIBGe-GLMM/refs/heads/main/images/map.png" width="700">
 
 **Figure B.1 in [2].** Simplified map of the Northern Netherlands showing the 17 locations at which the data were collected. The labels are composed of a manager label and a number as in the data.
 
